@@ -1,6 +1,8 @@
 "use client";
 import { useVoice, VoiceReadyState } from "@humeai/voice-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
 export default function Controls() {
   const { connect, disconnect, readyState } = useVoice();
   const [connecting, setConnecting] = useState(false);
@@ -8,18 +10,18 @@ export default function Controls() {
   return (
     <div className="m-8">
       {readyState === VoiceReadyState.OPEN ? (
-        <button
-          className="w-48 h-16 border-2 rounded-lg bg-red-400"
+        <Button
+          className="w-48 h-16 border-2 rounded-md bg-red-400 text-lg"
           onClick={() => {
             disconnect();
           }}
         >
           End Session
-        </button>
+        </Button>
       ) : (
-        <button
-          className={`w-48 h-16 border-2 rounded-lg ${
-            connecting ? "bg-yellow-200" : "bg-green-300"
+        <Button
+          className={`w-48 h-16 border-2 rounded-lg font-bold text-lg ${
+            connecting ? " bg-yellow-200" : "bg-green-200"
           }`}
           onClick={() => {
             setConnecting(true);
@@ -32,8 +34,8 @@ export default function Controls() {
               });
           }}
         >
-          {connecting ? "Loading" : "Start Session"}
-        </button>
+          {connecting ? "Loading" : "Talk to Mindy!"}
+        </Button>
       )}
     </div>
   );

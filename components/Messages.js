@@ -77,24 +77,31 @@ export default function Messages({ notes, newNotes }) {
     //   </Card> */}
     // </div>
 
-    <div class="flex flex-col-reverse flex-nowrap overflow-auto h-max-screen w-80 m-6">
-      {messages.toReversed().map((msg, index) => {
-        if (msg.type === "user_message" || msg.type === "assistant_message") {
-          return (
-            <div
-              key={msg.type + index}
-              className="justify-start items-start my-2 px-4"
-            >
-              <p className={index == 0 ? "text-white" : "text-slate-500"}>
-                {msg.type === "user_message" ? "You:" : "Jabber AI:"}
-              </p>
-              <p className={index == 0 ? "text-white" : "text-slate-500"}>
-                {msg.message.content}
-              </p>
-            </div>
-          );
-        }
-      })}
+    <div className="flex flex-col-reverse flex-nowrap overflow-auto w-80 mt-1/2 p-6">
+      {messages
+        .slice(-6)
+        .toReversed()
+        .map((msg, index) => {
+          if (msg.type === "user_message" || msg.type === "assistant_message") {
+            return (
+              <div
+                key={msg.type + index}
+                className="justify-start items-start my-2 px-4"
+              >
+                <p
+                  className={`${
+                    index == 0 ? "text-white" : "text-slate-400"
+                  } font-bold`}
+                >
+                  {msg.type === "user_message" ? "You:" : "Mindy:"}
+                </p>
+                <p className={index == 0 ? "text-white" : "text-slate-400"}>
+                  {msg.message.content}
+                </p>
+              </div>
+            );
+          }
+        })}
     </div>
   );
 }
