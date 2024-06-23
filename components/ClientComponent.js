@@ -16,7 +16,7 @@ export default function ClientComponent({ accessToken }) {
   return (
     <div className="min-h-screen min-w-full flex bg-slate-800">
       <div className="flex-1">
-        <CategoryPage title="Jabber" notes={notes} />
+        <CategoryPage title="Jabber AI" notes={notes} />
       </div>
       <div className="w-80 bg-slate-700 flex flex-col justify-end items-center max-h-screen">
         <VoiceProvider

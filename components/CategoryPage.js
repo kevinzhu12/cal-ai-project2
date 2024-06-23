@@ -15,6 +15,14 @@ const MyWrapper = ({ children }) => {
 
 const CategoryPage = ({ title, notes }) => {
   console.log(notes);
+  const noteColors = [
+    ["bg-rose-200", "bg-rose-400"],
+    ["bg-sky-200", "bg-sky-400"],
+    ["bg-violet-200", "bg-violet-400"],
+    ["bg-pink-200", "bg-pink-400"],
+    ["bg-emerald-200", "bg-emerald-400"],
+    ["bg-yellow-200", "bg-yellow-400"],
+  ];
   return (
     <>
       <div className="px-6 py-4 bg-slate-900 h-20">
@@ -25,7 +33,11 @@ const CategoryPage = ({ title, notes }) => {
           {notes.map((note, key) => (
             <Card
               key={key}
-              className="h-fit w-68 m-4 bg-slate-50 hover:bg-slate-400 focus:ring focus:ring-yellow-500 flex justify-center rounded-md"
+              className={`h-fit w-68 m-4 ${
+                noteColors[key % noteColors.length][0]
+              } ${
+                "hover:" + noteColors[key % noteColors.length][1]
+              } focus:ring focus:ring-yellow-500 flex justify-center rounded-md`}
             >
               <CardContent>
                 <p className="p-2 markdown">

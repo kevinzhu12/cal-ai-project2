@@ -9,7 +9,7 @@ export default function Controls() {
     <div className="m-8">
       {readyState === VoiceReadyState.OPEN ? (
         <button
-          className="w-48 h-16 border-2 rounded-md bg-red-400"
+          className="w-48 h-16 border-2 rounded-lg bg-red-400"
           onClick={() => {
             disconnect();
           }}
@@ -18,8 +18,8 @@ export default function Controls() {
         </button>
       ) : (
         <button
-          className={`w-48 h-16 border-2 rounded-md ${
-            connecting ? "bg-yellow-200" : "bg-green-200"
+          className={`w-48 h-16 border-2 rounded-lg ${
+            connecting ? "bg-yellow-200" : "bg-green-300"
           }`}
           onClick={() => {
             setConnecting(true);
