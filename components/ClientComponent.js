@@ -4,6 +4,7 @@ import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import CategoryPage from "./CategoryPage";
+import CategoryPage2 from "./CategoryPage2";
 
 export default function ClientComponent({ accessToken }) {
   const [notes, setNotes] = useState([]);
