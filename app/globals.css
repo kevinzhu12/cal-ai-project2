@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+.gradient-text {
+  background: radial-gradient(
+    circle,
+    rgba(234, 191, 230, 1) 0%,
+    rgba(147, 173, 205, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-background {
+  background: radial-gradient(
+    circle,
+    rgba(234, 191, 230, 1) 0%,
+    rgba(147, 173, 205, 1) 100%
+  );
+}
+
+.gradient-background-connecting {
+  background: radial-gradient(
+    circle,
+    rgb(232, 227, 129) 0%,
+    rgb(172, 178, 220) 100%
+  );
+}
+
 .markdown > * {
   all: revert;
 }

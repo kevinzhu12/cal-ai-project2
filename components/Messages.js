@@ -77,7 +77,7 @@ export default function Messages({ notes, newNotes }) {
     //   </Card> */}
     // </div>
 
-    <div class="flex flex-col-reverse flex-nowrap overflow-auto w-80 p-6">
+    <div className="flex flex-col-reverse flex-nowrap overflow-auto w-80 mt-1/2 p-6">
       {messages
         .slice(-6)
         .toReversed()
