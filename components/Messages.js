@@ -77,7 +77,7 @@ export default function Messages({ notes, newNotes }) {
     //   </Card> */}
     // </div>
 
-    <div class="flex flex-col-reverse flex-nowrap overflow-auto w-80 space-y-3 p-6">
+    <div class="flex flex-col-reverse flex-nowrap overflow-auto w-80 p-6">
       {messages
         .slice(-6)
         .toReversed()
@@ -86,12 +86,16 @@ export default function Messages({ notes, newNotes }) {
             return (
               <div
                 key={msg.type + index}
-                className="justify-start items-start px-4"
+                className="justify-start items-start my-2 px-4"
               >
-                <p className={index == 0 ? "text-white" : "text-slate-500"}>
-                  {msg.type === "user_message" ? "User:" : "Mindmap Assistant:"}
+                <p
+                  className={`${
+                    index == 0 ? "text-white" : "text-slate-400"
+                  } font-bold`}
+                >
+                  {msg.type === "user_message" ? "You:" : "Mindy:"}
                 </p>
-                <p className={index == 0 ? "text-white" : "text-slate-500"}>
+                <p className={index == 0 ? "text-white" : "text-slate-400"}>
                   {msg.message.content}
                 </p>
               </div>

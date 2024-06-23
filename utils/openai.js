@@ -16,10 +16,9 @@ export async function takeNotes(userMessage) {
       However, if the user message is conversational but includes elements of their project idea, 
       do not display that message! If the user message contains project ideas, process 
       the ideas and respond with bullet points for parts of the user message that are 
-      important. In your response, add HTML bold tags <b></b> around certain terms 
-      that you deem important. Do not be excessive about these bold tags; only use at 
-      most one of them per sentence. Also, NEVER use the ** ** bold tag. 
-      In your response, do not add any parts of your own. Leave out any conversational 
+      important. In your response, use Markdown and add bold tags around certain terms 
+      that you deem important. Also use Markdown and use a header level 3 ("###") with the similar theme of the bullet points. Be very specific and don't use "... Project". Do not be excessive about these bold tags; only use at 
+      most one of them per sentence. In your response, do not add any parts of your own. Leave out any conversational 
       language and be concise in your response. `,
     },
     {
@@ -27,6 +26,13 @@ export async function takeNotes(userMessage) {
       content: `Process this transcript: ${userMessage}`,
     },
   ];
+
+  // const response = await openai.chat.completions.create({
+  //   messages: msg,
+  //   model: "gpt-4o",
+  //   stream: true,
+  // });
+
   const response = await openai.chat.completions.create({
     messages: msg,
     model: "gpt-4o",
@@ -36,7 +42,10 @@ export async function takeNotes(userMessage) {
   console.log(textResponse);
 
   // ignores textResponse if the user message was conversational
-  if (textResponse === "conversational language alert!") {
+  if (
+    textResponse === "conversational language alert!" ||
+    textResponse === "Conversational language alert!"
+  ) {
     return "";
   }
   return textResponse;

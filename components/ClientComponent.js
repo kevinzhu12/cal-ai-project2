@@ -4,6 +4,7 @@ import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import CategoryPage from "./CategoryPage";
+import CategoryPage2 from "./CategoryPage2";
 
 export default function ClientComponent({ accessToken }) {
   const [notes, setNotes] = useState([]);
@@ -13,11 +14,11 @@ export default function ClientComponent({ accessToken }) {
   };
 
   return (
-    <div className="max-h-screen min-w-full flex bg-slate-800">
+    <div className="min-h-screen min-w-full flex bg-slate-800">
       <div className="flex-1">
-        <CategoryPage title="MindMap" notes={notes} />
+        <CategoryPage title="Jabber" notes={notes} />
       </div>
-      <div className="w-80 bg-slate-700 flex flex-col justify-end items-center">
+      <div className="w-80 bg-slate-700 flex flex-col justify-end items-center max-h-screen">
         <VoiceProvider
           auth={{
             type: "accessToken",
